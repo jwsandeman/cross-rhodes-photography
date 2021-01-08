@@ -3,26 +3,35 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.post-link {
-  text-decoration: none;
-}
-
 header {
-  height: 250px;
+  height: 350px;
   background-color: white;
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(/exercises/assets/banner.jpeg);
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
+.home-page header {
+  background-image: url(/assets/banner.jpeg);
+}
+
 header > * {
   z-index: 10;
+}
+
+/* This removes for all links ('a') */
+/* .post-link {
+  text-decoration: none;
+} */
+
+/* This only removes for links ('a') with the class: 'post-link' */
+a.post-link {
+  text-decoration: none;
 }
 
 header::after {
@@ -44,7 +53,7 @@ header::after {
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
-  background-image: url(/exercises/assets/jason_profile.jpg);
+  background-image: url(/assets/jason_profile.jpg);
   background-size: cover;
 }
 
@@ -71,7 +80,12 @@ header::after {
   width: 100%;
   padding-left: 16px;
   padding-right: 16px;
+
   /* background-color: blue; */
+}
+
+.main-container.blog-posts {
+  text-decoration: none;
 }
 
 .post {

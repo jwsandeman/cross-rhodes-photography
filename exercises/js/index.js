@@ -21,16 +21,19 @@ const buildPosts = (blogPosts) => {
     let blogPostsContent = "";
     for(blogPost of blogPosts){
         const postImage = `${API_BASE_URL}${blogPost.post_image}`;
-        const postDate = new Date(blogPost.added_date).toDateString();
+        const postDate = new Date(parseInt(blogPost.added_date)).toDateString();
+        const postLink = `/post.html?id=${blogPost.id}`;
         blogPostsContent +=`
-        <div class="post">
-            <div class="post-image" style="background-image: url(${postImage})"></div>
-            <div class="post-content">
-                <div class="post-date">${postDate}</div>
-                <div class="post-title"><h4>${blogPost.title}</h4></div>
-                <div class="post-text">${blogPost.content}</div>
+        <a class="post-link" href="${postLink}">
+            <div class="post">
+                <div class="post-image" style="background-image: url(${postImage})"></div>
+                <div class="post-content">
+                    <div class="post-date">${postDate}</div>
+                    <div class="post-title"><h4>${blogPost.title}</h4></div>
+                    <div class="post-text">${blogPost.content}</div>
+                </div>
             </div>
-        </div>
+        </a>
         `
     }
     document.querySelector('.blog-posts').innerHTML = blogPostsContent;
